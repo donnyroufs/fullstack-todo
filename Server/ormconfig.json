@@ -1,0 +1,41 @@
+[
+  {
+    "name": "development",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "todo-demo",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["src/Data/Entities/**/*.ts"],
+    "migrations": ["src/Server/Data/Migrations/**/*.ts"],
+    "subscribers": ["src/Server/Data/Subscribers/**/*.ts"],
+    "factories": ["src/Server/Data/Factories/**/*.ts"],
+    "seeds": ["src/Server/Data/Seeds/**/*.ts"],
+    "cli": {
+      "migrationsDir": "src/Data/Migrations"
+    }
+  },
+  {
+    "name": "test",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "todo-demo-test",
+    "synchronize": true,
+    "dropSchema": true,
+    "logging": false,
+    "entities": ["src/Data/Entities/**/*.ts"],
+    "migrations": ["src/Server/Data/Migrations/**/*.ts"],
+    "subscribers": ["src/Server/Data/Subscribers/**/*.ts"],
+    "factories": ["src/Server/Data/Factories/**/*.ts"],
+    "seeds": ["src/Server/Data/Seeds/**/*.ts"],
+    "cli": {
+      "migrationsDir": "src/Data/Migrations"
+    }
+  }
+]
