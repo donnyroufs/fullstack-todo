@@ -1,17 +1,16 @@
-import '@donnyroufs/browter'
+import { Browter } from '@donnyroufs/browter'
 
-import { Router } from 'express'
 import * as Todo from './Api/Serializers'
 
-const router = Router()
+const browter = new Browter()
 
-router.group('/todos', (router) => {
+browter.group('/todos', (browter) => {
   const { storeSerializer, updateSerializer } = Todo
 
-  router.get('/', 'TodoController.index')
-  router.post('/', 'TodoController.store', [storeSerializer])
-  router.patch('/:id', 'TodoController.update', [updateSerializer])
-  router.delete('/:id', 'TodoController.destroy')
+  browter.get('/', 'TodoController.index')
+  browter.post('/', 'TodoController.store', [storeSerializer])
+  browter.patch('/:id', 'TodoController.update', [updateSerializer])
+  browter.delete('/:id', 'TodoController.destroy')
 })
 
-export default router
+export default browter.build()
